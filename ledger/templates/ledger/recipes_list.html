@@ -6,7 +6,7 @@
   <h2>Recipes</h2>
   <ul>
     {% for recipe in recipes %}
-      <li><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</a></li>
+      <li><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a></li>
     {% empty %}
       <li>No recipes yet.</li>
     {% endfor %}
