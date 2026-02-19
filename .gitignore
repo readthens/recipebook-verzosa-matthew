@@ -5,4 +5,5 @@ __pycache__/
 *.sqlite3
 db.sqlite3
 .DS_Store
-*.log
+*.log__pycache__/
+*.py[cod]
