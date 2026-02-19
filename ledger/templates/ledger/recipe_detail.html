@@ -5,10 +5,9 @@
 {% block content %}
   <h2>{{ recipe.name }}</h2>
   <ul>
-    {% for ingredient in recipe.ingredients %}
-      <li>{{ ingredient.quantity }} {{ ingredient.name }}</li>
+    {% for ingredient in recipe.ingredients.all %}
+      <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
     {% endfor %}
   </ul>
   <p><a href="{% url 'recipes_list' %}">Back to recipe list</a></p>
 {% endblock %}
-
