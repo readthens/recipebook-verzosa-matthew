@@ -12,12 +12,24 @@
         padding: 0 1rem;
         line-height: 1.5;
       }
-      header h1 {
-        margin: 0 0 1rem;
+      .site-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
       }
-      header a {
+      .site-header h1 {
+        margin: 0;
+      }
+      .site-header a {
         color: inherit;
         text-decoration: none;
+      }
+      .auth-actions form {
+        margin: 0;
+      }
+      .page-heading {
+        margin-top: 0;
       }
       ul {
         padding-left: 1.25rem;
@@ -25,13 +37,23 @@
     </style>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <h1><a href="{% url 'recipes_list' %}">Recipe Book</a></h1>
+      <div class="auth-actions">
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
+        {% else %}
+          <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+      </div>
     </header>
 
+    <h2 class="page-heading">{% block page_heading %}Recipe Book{% endblock %}</h2>
     <main>
       {% block content %}{% endblock %}
     </main>
   </body>
 </html>
-

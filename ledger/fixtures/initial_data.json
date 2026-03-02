@@ -1,16 +1,49 @@
 [
   {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "demoauthor",
+      "first_name": "Demo",
+      "last_name": "Author",
+      "email": "demoauthor@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-02T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "ledger.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "name": "Demo Author",
+      "short_bio": "Demo author profile used for initial recipe data. This biography is intentionally long so it satisfies the required validation rule for short_bio, which requires more than 255 characters. It also represents a realistic profile description for class demonstrations in Recipe Book exercises and seed data loading."
+    }
+  },
+  {
     "model": "ledger.recipe",
     "pk": 1,
     "fields": {
-      "name": "Recipe 1"
+      "name": "Recipe 1",
+      "author": 1,
+      "created_on": "2026-03-02T00:00:00Z",
+      "updated_on": "2026-03-02T00:00:00Z"
     }
   },
   {
     "model": "ledger.recipe",
     "pk": 2,
     "fields": {
-      "name": "Recipe 2"
+      "name": "Recipe 2",
+      "author": 1,
+      "created_on": "2026-03-02T00:00:00Z",
+      "updated_on": "2026-03-02T00:00:00Z"
     }
   },
   {

@@ -1,9 +1,9 @@
 {% extends "ledger/base.html" %}
 
 {% block title %}Recipe List{% endblock %}
+{% block page_heading %}Recipe List{% endblock %}
 
 {% block content %}
-  <h2>Recipes</h2>
   <ul>
     {% for recipe in recipes %}
       <li><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a></li>

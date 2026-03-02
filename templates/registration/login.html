@@ -1,0 +1,16 @@
+{% extends "ledger/base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block page_heading %}Login{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if next %}
+      <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+    <button type="submit">Login</button>
+  </form>
+  <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+{% endblock %}
