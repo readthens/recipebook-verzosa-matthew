@@ -11,5 +11,21 @@
       <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
     {% endfor %}
   </ul>
+  <p><a href="{% url 'recipe_image_add' recipe.pk %}">Add Image</a></p>
+
+  <h3>Images</h3>
+  <ul>
+    {% for image in recipe.images.all %}
+      <li>
+        <img src="{{ image.image.url }}" alt="{{ image.description }}">
+        {% if image.description %}
+          <p>{{ image.description }}</p>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>No images uploaded yet.</li>
+    {% endfor %}
+  </ul>
+
   <p><a href="{% url 'recipes_list' %}">Back to recipe list</a></p>
 {% endblock %}
