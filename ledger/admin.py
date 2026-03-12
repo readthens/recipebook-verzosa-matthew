@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
-from .models import Ingredient, Profile, Recipe, RecipeIngredient
+from .models import Ingredient, Profile, Recipe, RecipeImage, RecipeIngredient
 
 
 class ProfileInline(admin.StackedInline):
@@ -20,11 +20,16 @@ class RecipeIngredientInline(admin.TabularInline):
     extra = 1
 
 
+class RecipeImageInline(admin.TabularInline):
+    model = RecipeImage
+    extra = 1
+
+
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     search_fields = ("name",)
     list_display = ("name", "author", "created_on", "updated_on")
-    inlines = [RecipeIngredientInline]
+    inlines = [RecipeIngredientInline, RecipeImageInline]
 
 
 class IngredientAdmin(admin.ModelAdmin):

@@ -4,6 +4,9 @@
 {% block page_heading %}Recipe List{% endblock %}
 
 {% block content %}
+  {% if user.is_authenticated %}
+    <p><a href="{% url 'recipe_add' %}">Add Recipe</a></p>
+  {% endif %}
   <ul>
     {% for recipe in recipes %}
       <li><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a></li>
